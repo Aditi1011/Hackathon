@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppLandingComponent } from './app-landing/app-landing.component';
 import { MapComponent } from './map/map.component';
-
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +15,14 @@ import { MapComponent } from './map/map.component';
     HeaderComponent,
     FooterComponent,
     AppLandingComponent,
-    MapComponent
+    MapComponent,
+    MainpageComponent
   ],
   imports: [
     BrowserModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDqgTqghMT9TnKMPOJt-4wAEgGcoUgMKE8',
-      libraries: ['places', 'geometry']
+      apiKey: 'AIzaSyD6-jg0bRtV3lT_I8ejU1PgnvA_qm60h7o',
+      libraries: ['places']
     })
   ],
   providers: [],

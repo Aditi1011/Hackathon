@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core'
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 /// <reference path="../../../../../../node_modules/@types/googlemaps/index.d.ts"/>
 
+let state: boolean;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,6 +17,8 @@ export class AppComponent implements OnInit {
   zoom: number;
   address: string;
   private geoCoder;
+
+  public isVisible: boolean;
 
   @ViewChild('search')
   public searchElementRef: ElementRef;
@@ -64,6 +68,10 @@ export class AppComponent implements OnInit {
     }
   }
 
+  public toggle() {
+    this.isVisible = !this.isVisible;
+  }
+
 
   markerDragEnd($event: MouseEvent) {
     console.log($event);
@@ -81,10 +89,10 @@ export class AppComponent implements OnInit {
           this.zoom = 12;
           this.address = results[0].formatted_address;
         } else {
-          window.alert('No results found');
+         // window.alert('No results found');
         }
       } else {
-        window.alert('Geocoder failed due to: ' + status);
+       // window.alert('Geocoder failed due to: ' + status);
       }
 
     });

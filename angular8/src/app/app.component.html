@@ -1,9 +1,7 @@
 <app-header></app-header>
 <app-app-landing></app-app-landing>
 <!-- app.component.html -->
-<div class="container">
-
-  <h1>Angular Google Maps with Places Search Example</h1>
+<div *ngIf="!isVisible" class="container">
 
   <div class="form-group">
     <label>Enter address</label>
@@ -15,7 +13,11 @@
       (dragEnd)="markerDragEnd($event)"></agm-marker>
   </agm-map>
 
-  <h5>Address: {{address}}</h5>
+  <!-- <h5>Address: {{address}}</h5> -->
   <div>Latitude: {{latitude}}</div>
   <div>Longitude: {{longitude}}</div>
+<button type="button" class="btn btn-primary" (click)="toggle()"> Proceed </button>
+
 </div>
+<app-mainpage *ngIf="isVisible" [latitude]="latitude" [longitude]="longitude">
+</app-mainpage>
